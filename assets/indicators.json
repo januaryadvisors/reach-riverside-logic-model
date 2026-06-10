@@ -1,0 +1,246 @@
+{
+  "_README": "Prototype KPI dataset for the Reach Riverside logic model. Keyed by EXACT outcome label (must match the text rendered in the Short-term / Intermediate / Long-term Outcomes columns). Each outcome maps to an array of indicator objects. 'direction' = 'up' if higher is better, 'down' if lower is better (e.g. evictions). 'tier' = Core | Secondary (used by the priority filter). 'status' is explicit here for demo clarity; the layer will also derive a status from current vs. target if status is omitted. SAMPLE/ILLUSTRATIVE VALUES — not official Reach figures.",
+  "indicators": {
+    "Increased access to affordable rental housing": [
+      {
+        "indicator": "Affordable rental units available to neighbors",
+        "definition": "Count of income-restricted rental units available in the Riverside footprint.",
+        "unit": "count", "baseline": 180, "target": 600, "current": 412, "direction": "up",
+        "source": "Pennrose / WHA lease-up records", "frequency": "Quarterly", "owner": "REACH Riverside + Pennrose",
+        "tier": "Core", "status": "on-track"
+      },
+      {
+        "indicator": "Median rent-to-income ratio for placed households",
+        "definition": "Share of household income spent on rent for newly housed neighbors.",
+        "unit": "%", "baseline": 48, "target": 30, "current": 38, "direction": "down",
+        "source": "WHA tenancy records", "frequency": "Annually", "owner": "Wilmington Housing Authority",
+        "tier": "Secondary", "status": "at-risk"
+      }
+    ],
+    "Increased access to wealth creation opportunities": [
+      {
+        "indicator": "Neighbors enrolled in wealth-building programs",
+        "definition": "Unduplicated residents enrolled in homeownership, savings, or business programs.",
+        "unit": "count", "baseline": 0, "target": 250, "current": 96, "direction": "up",
+        "source": "Program intake CRM", "frequency": "Quarterly", "owner": "REACH Riverside",
+        "tier": "Core", "status": "at-risk"
+      }
+    ],
+    "Increased acreage RESTORED": [
+      {
+        "indicator": "Acres of property restored / redeveloped",
+        "definition": "Cumulative acreage brought back into productive use.",
+        "unit": "count", "baseline": 2, "target": 15, "current": 9, "direction": "up",
+        "source": "Redevelopment project tracker", "frequency": "Annually", "owner": "REACH Riverside + Pennrose",
+        "tier": "Secondary", "status": "on-track"
+      }
+    ],
+    "Increased access to purchasing permanently affordable housing": [
+      {
+        "indicator": "Community Land Trust homes available for purchase",
+        "definition": "Permanently-affordable for-sale homes in the CLT inventory.",
+        "unit": "count", "baseline": 0, "target": 40, "current": 6, "direction": "up",
+        "source": "Community Land Trust records", "frequency": "Quarterly", "owner": "REACH Riverside",
+        "tier": "Core", "status": "off-track"
+      }
+    ],
+    "Increased home ownership skills": [
+      {
+        "indicator": "Households completing homebuyer education",
+        "definition": "Households finishing HUD-approved homebuyer counseling.",
+        "unit": "count", "baseline": 30, "target": 150, "current": 88, "direction": "up",
+        "source": "Housing counseling logs", "frequency": "Quarterly", "owner": "DSHA partner",
+        "tier": "Core", "status": "on-track"
+      }
+    ],
+    "Increased access to rental, utility, and mortgage assistance": [
+      {
+        "indicator": "Households receiving rental/utility assistance",
+        "definition": "Households that received at least one assistance disbursement.",
+        "unit": "count", "baseline": 120, "target": 400, "current": 305, "direction": "up",
+        "source": "Assistance program ledger", "frequency": "Quarterly", "owner": "REACH Riverside",
+        "tier": "Secondary", "status": "on-track"
+      }
+    ],
+    "Increased student attendance": [
+      {
+        "indicator": "Chronic absenteeism rate (Riverside schools)",
+        "definition": "Share of students missing 10%+ of school days.",
+        "unit": "%", "baseline": 34, "target": 15, "current": 27, "direction": "down",
+        "source": "Kingswood Academy / district SIS", "frequency": "Quarterly", "owner": "Education partner",
+        "tier": "Core", "status": "at-risk"
+      }
+    ],
+    "Increased math and literacy levels": [
+      {
+        "indicator": "Students at/above grade level in literacy",
+        "definition": "Share of students meeting grade-level literacy benchmark.",
+        "unit": "%", "baseline": 41, "target": 70, "current": 52, "direction": "up",
+        "source": "i-Ready / district assessments", "frequency": "Semi-annually", "owner": "Education partner",
+        "tier": "Core", "status": "on-track"
+      }
+    ],
+    "Increased access to affordable, high quality healthcare": [
+      {
+        "indicator": "Neighbors with a usual source of care",
+        "definition": "Share of surveyed residents reporting a regular healthcare provider.",
+        "unit": "%", "baseline": 58, "target": 85, "current": 64, "direction": "up",
+        "source": "Annual resident survey", "frequency": "Annually", "owner": "Community Health partner",
+        "tier": "Secondary", "status": "at-risk"
+      }
+    ],
+    "Increased access to job skills training and support": [
+      {
+        "indicator": "Residents enrolled in workforce training",
+        "definition": "Unduplicated residents enrolled in a credentialed training program.",
+        "unit": "count", "baseline": 0, "target": 200, "current": 142, "direction": "up",
+        "source": "Workforce program CRM", "frequency": "Quarterly", "owner": "Economic Vitality partner",
+        "tier": "Core", "status": "on-track"
+      }
+    ],
+
+    "Increase in families moving into affordable rental housing": [
+      {
+        "indicator": "Families newly housed in affordable units",
+        "definition": "Net new families moving into income-restricted units year over year.",
+        "unit": "count", "baseline": 0, "target": 300, "current": 158, "direction": "up",
+        "source": "Pennrose lease-up + WHA", "frequency": "Quarterly", "owner": "REACH Riverside + Pennrose",
+        "tier": "Core", "status": "on-track"
+      }
+    ],
+    "Increase in families purchasing homes": [
+      {
+        "indicator": "First-time homebuyers (Riverside neighbors)",
+        "definition": "Neighbors closing on a first home purchase.",
+        "unit": "count", "baseline": 4, "target": 60, "current": 19, "direction": "up",
+        "source": "Closing records / counseling partner", "frequency": "Quarterly", "owner": "DSHA partner",
+        "tier": "Core", "status": "at-risk"
+      }
+    ],
+    "Foreclosures/evictions prevented": [
+      {
+        "indicator": "Eviction filings among assisted households",
+        "definition": "Eviction filings against households in the assistance program.",
+        "unit": "count", "baseline": 45, "target": 10, "current": 22, "direction": "down",
+        "source": "Court records / case management", "frequency": "Quarterly", "owner": "Housing Support Services",
+        "tier": "Core", "status": "on-track"
+      }
+    ],
+    "Up-to-date rental and utility payments": [
+      {
+        "indicator": "Households current on rent and utilities",
+        "definition": "Share of supported households with no past-due balance.",
+        "unit": "%", "baseline": 61, "target": 90, "current": 74, "direction": "up",
+        "source": "Property management ledger", "frequency": "Quarterly", "owner": "Wilmington Housing Authority",
+        "tier": "Secondary", "status": "at-risk"
+      }
+    ],
+    "Increased income, savings, assets, and/or decreased debt": [
+      {
+        "indicator": "Participants increasing net worth (12 mo.)",
+        "definition": "Share of financial-coaching participants with higher net worth after a year.",
+        "unit": "%", "baseline": 0, "target": 60, "current": 31, "direction": "up",
+        "source": "Financial coaching outcomes", "frequency": "Annually", "owner": "Economic Vitality partner",
+        "tier": "Core", "status": "at-risk"
+      }
+    ],
+    "Increased credit scores among residents": [
+      {
+        "indicator": "Participants raising credit score 30+ points",
+        "definition": "Share of coaching participants improving score by 30+ points.",
+        "unit": "%", "baseline": 0, "target": 50, "current": 24, "direction": "up",
+        "source": "Credit-builder program", "frequency": "Annually", "owner": "Economic Vitality partner",
+        "tier": "Secondary", "status": "off-track"
+      }
+    ],
+    "New small businesses created": [
+      {
+        "indicator": "New businesses launched on the corridor",
+        "definition": "New businesses opened in the commercial corridor.",
+        "unit": "count", "baseline": 1, "target": 25, "current": 7, "direction": "up",
+        "source": "Corridor revitalization tracker", "frequency": "Annually", "owner": "REACH Riverside",
+        "tier": "Core", "status": "at-risk"
+      }
+    ],
+    "Students achieving academic benchmarks": [
+      {
+        "indicator": "Students meeting annual growth target",
+        "definition": "Share of students meeting expected annual academic growth.",
+        "unit": "%", "baseline": 39, "target": 65, "current": 47, "direction": "up",
+        "source": "District assessments", "frequency": "Annually", "owner": "Education partner",
+        "tier": "Secondary", "status": "on-track"
+      }
+    ],
+
+    "Increased housing stability": [
+      {
+        "indicator": "Residents housed 12+ consecutive months",
+        "definition": "Share of placed households retaining stable housing for a year or more.",
+        "unit": "%", "baseline": 62, "target": 88, "current": 73, "direction": "up",
+        "source": "WHA tenancy records", "frequency": "Quarterly", "owner": "Wilmington Housing Authority",
+        "tier": "Core", "status": "on-track"
+      },
+      {
+        "indicator": "Legacy residents remaining in neighborhood",
+        "definition": "Share of pre-redevelopment residents still living in Riverside.",
+        "unit": "%", "baseline": 100, "target": 85, "current": 91, "direction": "up",
+        "source": "Resident registry", "frequency": "Annually", "owner": "REACH Riverside",
+        "tier": "Core", "status": "on-track"
+      }
+    ],
+    "Increased legacy resident retention": [
+      {
+        "indicator": "Legacy households returning post-redevelopment",
+        "definition": "Share of relocated legacy households who return to new units.",
+        "unit": "%", "baseline": 0, "target": 75, "current": 58, "direction": "up",
+        "source": "Relocation tracking", "frequency": "Annually", "owner": "REACH Riverside",
+        "tier": "Core", "status": "at-risk"
+      }
+    ],
+    "Generational wealth creation through home ownership": [
+      {
+        "indicator": "Median home equity built by neighbor owners",
+        "definition": "Median equity accrued by Riverside homeowners assisted by the program.",
+        "unit": "$", "baseline": 0, "target": 60000, "current": 18000, "direction": "up",
+        "source": "Property records / CLT", "frequency": "Annually", "owner": "REACH Riverside",
+        "tier": "Secondary", "status": "off-track"
+      }
+    ],
+    "Revitalized commericial corridor": [
+      {
+        "indicator": "Ground-floor commercial occupancy rate",
+        "definition": "Share of corridor commercial space that is leased and occupied.",
+        "unit": "%", "baseline": 35, "target": 85, "current": 54, "direction": "up",
+        "source": "Corridor leasing report", "frequency": "Quarterly", "owner": "REACH Riverside + Pennrose",
+        "tier": "Core", "status": "at-risk"
+      }
+    ],
+    "Increased high school graduation": [
+      {
+        "indicator": "On-time high school graduation rate",
+        "definition": "Share of Riverside students graduating within four years.",
+        "unit": "%", "baseline": 71, "target": 90, "current": 79, "direction": "up",
+        "source": "District / state report card", "frequency": "Annually", "owner": "Education partner",
+        "tier": "Core", "status": "on-track"
+      }
+    ],
+    "Increased financial health and economic independence": [
+      {
+        "indicator": "Households above ALICE survival threshold",
+        "definition": "Share of households earning above the basic cost-of-living threshold.",
+        "unit": "%", "baseline": 44, "target": 70, "current": 51, "direction": "up",
+        "source": "Resident survey / United Way ALICE", "frequency": "Annually", "owner": "Economic Vitality partner",
+        "tier": "Core", "status": "at-risk"
+      }
+    ],
+    "A vibrant, socially cohesive community": [
+      {
+        "indicator": "Residents reporting strong sense of community",
+        "definition": "Share of residents agreeing they feel connected to neighbors.",
+        "unit": "%", "baseline": 49, "target": 75, "current": 56, "direction": "up",
+        "source": "Annual resident survey", "frequency": "Annually", "owner": "REACH Riverside",
+        "tier": "Secondary", "status": "on-track"
+      }
+    ]
+  }
+}

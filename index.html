@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <link rel="stylesheet" href="./assets/kpi.css" />
+    <title>Reach Riverside — Logic Model + KPI layer (prototype)</title>
+    <!-- Print feature libraries (carried over from the original) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="momentum-dashboard"></div>
+
+    <!-- config + original dashboard engine -->
+    <script src="./config.js"></script>
+    <script src="./assets/color-manager.js"></script>
+    <script src="./assets/filter-manager.js"></script>
+    <script src="./assets/tooltip.js"></script>
+    <script src="./assets/data-loader.js"></script>
+    <script src="./assets/filter-system.js"></script>
+    <script src="./assets/dashboard.js"></script>
+
+    <!-- NEW: KPI / measurement overlay (decorates outcome cards after render) -->
+    <script src="./assets/kpi-layer.js"></script>
+  </body>
+</html>

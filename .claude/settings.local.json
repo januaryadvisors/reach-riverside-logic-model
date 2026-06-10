@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:januaryadvisors.github.io)",
+      "WebFetch(domain:github.com)",
+      "Read(//private/tmp/**)",
+      "Bash(gh repo *)",
+      "Bash(sed -n '1,120p' docs/reach-riverside/assets/data-loader.js)",
+      "Bash(ls docs/reach-riverside/assets)",
+      "Bash(curl -sL \"https://docs.google.com/spreadsheets/d/1olavg1cfmkW75MrPcuRftWsEBcfIf7mzKX7vcaNdV6E/export?format=csv&gid=1442531113\" -o reach_model.csv)",
+      "Bash(node *)"
+    ]
+  }
+}

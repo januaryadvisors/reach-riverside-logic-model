@@ -1,0 +1,583 @@
+@font-face {
+  font-family: 'Franklin Gothic';
+  src: url('../fonts/ITC Franklin Gothic Book.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Franklin Gothic';
+  font-weight: 500;
+  src: url('../fonts/ITC Franklin Gothic Medium.otf') format('opentype');
+}
+
+/* According to the brand guide colors have a base color and then from darkest to lightest: dark <base>, med light <base>, light <base>, background <base> */
+
+/* Hide print buttons - uncomment the line below to show them again */
+#momentum-dashboard-print-container { display: none !important; }
+
+/* Ensure filtered items are hidden */
+.momentum-dashboard-data-wrapper.filtered-out {
+  display: none !important;
+}
+
+:root {
+  --flame: #f65c2c;
+
+  --mustard: #e1b047;
+  --med-light-mustard: #e8c475;
+  --light-mustard: #dcf0ec;
+  --background-neutral: #fcf7ed;
+
+  --charcoal: #313131;
+  --med-light-charcoal: #646464;
+  --light-charcoal: #c1c1c1;
+
+  --radish: #eb2b33;
+
+  --plum: #37183e;
+
+  --kale: #334d48;
+  --light-kale: #b3b8b6;
+  --dark-kale: #263a36;
+}
+
+#momentum-dashboard {
+  color: var(--dark-kale);
+  font-family: 'Franklin Gothic', Helvetica, sans-serif;
+  overflow: hidden;
+  padding: 24px 48px;
+}
+#momentum-dashboard h1 {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+}
+#momentum-dashboard a {
+  color: var(--flame);
+}
+#momentum-dashboard-intro {
+  padding: 0 0 24px;
+}
+#momentum-dashboard-intro i {
+  padding-right: 2px;
+}
+#momentum-dashboard-body-wrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+#momentum-dashboard-header-wrapper {
+  display: flex;
+  gap: 12px;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1)) drop-shadow(0 1px 1px rgba(0, 0, 0, 0.06));
+}
+#momentum-dashboard-columns-wrapper {
+  display: flex;
+  gap: 12px;
+}
+.momentum-dashboard-header {
+  align-items: center;
+  border: 1px solid transparent;
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  margin: 0 0 12px 0;
+  width: 160px;
+  position: relative;
+}
+.momentum-dashboard-header-label-wrapper {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex-grow: 1;
+  gap: 8px;
+  padding: 16px 4px 16px 12px;
+  margin: 0 0 0 12px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+.momentum-dashboard-header-label-wrapper h2 {
+  display: inline;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+}
+.momentum-dashboard-tooltip-icon {
+  cursor: pointer;
+  margin: 0 0 0 2px;
+}
+.momentum-dashboard-tooltip-icon:hover svg {
+  opacity: 0.5;
+}
+.momentum-dashboard-tooltip-icon svg {
+  pointer-events: none;
+  width: 18px;
+}
+.momentum-dashboard-tooltip-icon path {
+  fill: none;
+  stroke: var(--dark-kale);
+}
+.momentum-dashboard-column-wrapper {
+  border-radius: 12px;
+  font-size: 16px;
+  flex-grow: 1;
+  flex-shrink: 0;
+  line-height: 22px;
+  width: 160px;
+}
+.momentum-dashboard-data-wrapper {
+  margin: 0 6px;
+  position: relative;
+  transition: all 0.3 ease-in-out;
+}
+.momentum-dashboard-datum {
+  border-radius: 8px;
+  margin: 6px 0;
+  padding: 12px;
+}
+#momentum-dashboard-modal button,
+#momentum-dashboard button {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+}
+.momentum-dashboard-button {
+  text-align: left;
+  line-height: 120% !important;
+}
+.momentum-dashboard-button:hover {
+  color: var(--med-light-charcoal) !important;
+}
+.momentum-dashboard-filter-button-wrapper {
+  display: flex;
+  font-size: 0.9em;
+  justify-content: flex-end;
+}
+
+.momentum-dashboard-filter-button-wrapper button {
+  border: 1px solid #333 !important;
+  margin: 6px 0px;
+  padding: 0px 6px;
+}
+
+.momentum-dashboard-see-all {
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+  cursor: pointer;
+  border: 1px solid var(--charcoal) !important;
+  margin: 12px;
+  border-radius: 8px;
+  background-color: var(--background-neutral) !important;
+  font-weight: 500 !important;
+  width: calc(100% - 24px);
+}
+.momentum-dashboard-see-all:hover {
+  background-color: var(--light-mustard) !important;
+}
+#momentum-dashboard-modal {
+  background-color: rgb(0, 0, 0, 0.2);
+  display: none;
+  font-family: 'Franklin Gothic', Helvetica, sans-serif;
+  height: 100%;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+#momentum-dashboard-modal-content {
+  background-color: #fefefe;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  margin: 5% auto;
+  padding: 20px;
+  width: 70%;
+}
+#momentum-dashboard-modal-header {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+#momentum-dashboard-close-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+#momentum-dashboard-close {
+  cursor: pointer;
+  font-size: 28px;
+  font-weight: bold;
+}
+#momentum-dashboard-research-header {
+  font-weight: 500;
+  margin: 24px 0 8px 0;
+  text-transform: uppercase;
+}
+.momentum-dashboard-research-item {
+  border-bottom: 1px solid var(--light-charcoal);
+  padding: 0 0 16px 0;
+  margin: 16px 0 0 0;
+  word-break: break-word;
+}
+.momentum-dashboard-research-item-header {
+  font-size: 18px;
+  font-weight: 500;
+  padding-bottom: 2px;
+}
+#momentum-dashboard-modal a {
+  color: var(--flame);
+}
+.momentum-dashboard-research-outcomes-wrapper {
+  margin: 8px 0 0;
+}
+.momentum-dashboard-research-outcomes {
+  font-weight: 500;
+}
+#momentum-dashboard-footer {
+  align-items: center;
+  display: flex;
+  font-size: 14px;
+  gap: 8px;
+  justify-content: center;
+  margin: 36px 0 24px 0;
+}
+
+#momentum-dashboard-footer img {
+  display: block;
+  height: 14px;
+  transform: translateX(-2px);
+}
+
+.momentum-dashboard-tooltip {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(4px);
+  border-radius: 6px;
+  border: 0.5px solid var(--light-charcoal);
+  font-size: 13px;
+  padding: 6px;
+  max-width: 200px;
+}
+
+/* Filter button states */
+.momentum-dashboard-filter-button {
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+/* PBC Component filter buttons */
+.momentum-dashboard-filter-button.pbc-economic-vitality {
+  background-color: #7B8FC520;
+  border-color: #7B8FC560;
+  color: #7B8FC5;
+}
+
+.momentum-dashboard-filter-button.pbc-economic-vitality:hover {
+  background-color: #7B8FC540;
+}
+
+.momentum-dashboard-filter-button.pbc-economic-vitality.selected {
+  background-color: #7B8FC5;
+  border-color: #7B8FC5;
+  color: #333;
+  border-width: 2px;
+}
+
+.momentum-dashboard-filter-button.pbc-education {
+  background-color: #7ED7A220;
+  border-color: #7ED7A260;
+  color: #7ED7A2;
+}
+
+.momentum-dashboard-filter-button.pbc-education:hover {
+  background-color: #7ED7A240;
+}
+
+.momentum-dashboard-filter-button.pbc-education.selected {
+  background-color: #7ED7A2;
+  border-color: #7ED7A2;
+  color: #333;
+  border-width: 2px;
+}
+
+.momentum-dashboard-filter-button.pbc-community-vibrancy {
+  background-color: #E5B8A020;
+  border-color: #E5B8A060;
+  color: #E5B8A0;
+}
+
+.momentum-dashboard-filter-button.pbc-community-vibrancy:hover {
+  background-color: #E5B8A040;
+}
+
+.momentum-dashboard-filter-button.pbc-community-vibrancy.selected {
+  background-color: #E5B8A0;
+  border-color: #E5B8A0;
+  color: #333;
+  border-width: 2px;
+}
+
+/* Partner filter buttons - default state */
+.momentum-dashboard-filter-button.partner-button {
+  background-color: #E1B04720;
+  border-color: #E1B04760;
+  color: #E1B047;
+}
+
+.momentum-dashboard-filter-button.partner-button:hover {
+  background-color: #E1B04740;
+}
+
+.momentum-dashboard-filter-button.partner-button.selected {
+  background-color: #E1B04760;
+  border-color: #E1B047;
+  border-width: 2px;
+}
+
+/* Partner button PBC color combinations */
+.momentum-dashboard-filter-button.partner-button.pbc-economic-vitality {
+  background-color: #7B8FC5;
+  border-color: #7B8FC5;
+  color: #333;
+  border-width: 2px;
+}
+
+.momentum-dashboard-filter-button.partner-button.pbc-education {
+  background-color: #7ED7A2;
+  border-color: #7ED7A2;
+  color: #333;
+  border-width: 2px;
+}
+
+.momentum-dashboard-filter-button.partner-button.pbc-community-vibrancy {
+  background-color: #E5B8A0;
+  border-color: #E5B8A0;
+  color: #333;
+  border-width: 2px;
+}
+
+/* Multiple PBC Component gradients for partner buttons */
+.momentum-dashboard-filter-button.partner-button.pbc-economic-vitality.pbc-education {
+  background: linear-gradient(90deg, #7B8FC5 50%, #7ED7A2 50%);
+  border-color: #7B8FC5;
+}
+
+.momentum-dashboard-filter-button.partner-button.pbc-economic-vitality.pbc-community-vibrancy {
+  background: linear-gradient(90deg, #7B8FC5 50%, #E5B8A0 50%);
+  border-color: #7B8FC5;
+}
+
+.momentum-dashboard-filter-button.partner-button.pbc-education.pbc-community-vibrancy {
+  background: linear-gradient(90deg, #7ED7A2 50%, #E5B8A0 50%);
+  border-color: #7ED7A2;
+}
+
+@media screen and (max-width: 1280px) {
+  #momentum-dashboard {
+    padding: 48px 24px;
+  }
+  #momentum-dashboard-intro {
+    padding: 32px 0 24px 0;
+  }
+  .momentum-dashboard-header-label-wrapper h2 {
+    font-size: 14px;
+  }
+  .momentum-dashboard-column-wrapper {
+    font-size: 15px;
+  }
+  .momentum-dashboard-datum {
+    margin: 4px 0;
+    padding: 8px;
+  }
+}
+
+/* ========================================
+   MODAL STYLES
+   ======================================== */
+
+.momentum-dashboard-modal-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 0;
+  padding: 5px 10px;
+  color: #1f2937;
+  border-bottom: 3px solid #3b82f6;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.momentum-dashboard-activities-section {
+  margin: 10px 0;
+  padding: 0;
+}
+
+.momentum-dashboard-activities-header {
+  font-size: 0.9em; /* Smaller text as requested */
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.momentum-dashboard-activities-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.momentum-dashboard-activity-item {
+  padding: 10px 5px 7px 5px;
+  margin: 0;
+  border-bottom: 1px solid #e5e7eb;
+  position: relative;
+  transition: all 0.2s ease;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #374151;
+}
+
+.momentum-dashboard-activity-item.even {
+  background: #ffffff;
+}
+
+.momentum-dashboard-activity-item.odd {
+  background: #f9fafb;
+}
+
+.momentum-dashboard-activity-item:last-child {
+  border-bottom: none;
+}
+
+.momentum-dashboard-activity-item:hover {
+  background: transparent;
+  transform: none;
+}
+
+.momentum-dashboard-activity-bullet {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: #3b82f6;
+  border-radius: 50%;
+}
+
+.momentum-dashboard-activity-item.even .momentum-dashboard-activity-bullet {
+  box-shadow: 0 0 0 3px #ffffff;
+}
+
+.momentum-dashboard-activity-item.odd .momentum-dashboard-activity-bullet {
+  box-shadow: 0 0 0 3px #f9fafb;
+}
+
+.momentum-dashboard-no-activities {
+  text-align: center;
+  padding: 40px 20px;
+  color: #6b7280;
+  font-style: italic;
+  background: #f9fafb;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+/* ========================================
+   NDG-SPECIFIC MODAL STYLES
+   ======================================== */
+
+.momentum-dashboard-description-section {
+  margin-bottom: 20px;
+}
+
+.momentum-dashboard-section-header {
+  font-size: 0.9em;
+  font-weight: 600;
+  color: white;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.momentum-dashboard-section-content {
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  color: #000000;
+  line-height: 1.6;
+}
+
+.momentum-dashboard-ndg-examples-section {
+  margin-bottom: 20px;
+}
+
+.momentum-dashboard-ndg-examples-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: #ffffff;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.momentum-dashboard-ndg-example-item {
+  padding: 10px 5px 10px 10px;
+  margin: 0;
+  border-bottom: 1px solid #e5e7eb;
+  position: relative;
+  transition: all 0.2s ease;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #000000;
+}
+
+.momentum-dashboard-ndg-example-item.even {
+  background: #ffffff;
+}
+
+.momentum-dashboard-ndg-example-item.odd {
+  background: #f9fafb;
+}
+
+.momentum-dashboard-ndg-example-item:last-child {
+  border-bottom: none;
+}
+
+.momentum-dashboard-ndg-example-item:hover {
+  background: #eff6ff;
+  transform: translateX(5px);
+}
+
+.momentum-dashboard-ndg-example-bullet {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: #3b82f6;
+  border-radius: 50%;
+}
+
+.momentum-dashboard-ndg-example-item.even .momentum-dashboard-ndg-example-bullet {
+  box-shadow: 0 0 0 3px #ffffff;
+}
+
+.momentum-dashboard-ndg-example-item.odd .momentum-dashboard-ndg-example-bullet {
+  box-shadow: 0 0 0 3px #f9fafb;
+}
