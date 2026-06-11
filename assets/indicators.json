@@ -1,263 +1,77 @@
 {
-  "_README": "Prototype KPI dataset for the Reach Riverside logic model — TIME-SERIES format. Keyed by EXACT logic-model row label (Outputs column OR one of the three Outcomes columns). Each indicator carries a 'series' (year -> value) instead of baseline/current/target; values may be a number or a string like 'TBD'. 'direction' = 'up' (higher better), 'down' (lower better), or 'neutral' (volume metric, no good/bad judgment — shown grey). 'target' optional (null = none), shown as reference only. Status color is derived from the year-over-year trend. NOTE ON OUTPUTS vs OUTCOMES: the 2023–2025 WRK Group reports are overwhelmingly OUTPUT (activity) counts, so those are mapped to the Outputs column; the Outcomes columns hold only genuine outcome rates here, which is why most outcome rows are intentionally still 'No KPI yet' (a real measurement gap). VALUES ARE REAL FIGURES from the 2023–2025 reports; row mapping is illustrative for this prototype.",
+  "_README": "KPI dataset for the Reach Riverside logic model — BASELINE + TIME-SERIES + GOAL format. Keyed by EXACT logic-model row label (Logic Model Alignment from the REACH metrics dictionary). Each indicator carries: 'baseline' (2018 benchmark), 'series' (2023/2024/2025 actuals), and 'target' (2026 goal). Values may be a number or a string like 'tbd' / 'did not track' (treated as missing). 'direction' = 'up' (higher is better) or 'down' (lower is better). The visualization shows PROGRESS from the 2018 baseline toward the 2026 goal, and the status color reflects how far along that progress is. VALUES are real figures pulled from the REACH metrics dictionary (Google Sheet); indicator→outcome mapping uses the dictionary's Logic Model Alignment column.",
+  "baselineYear": 2018,
   "years": [2023, 2024, 2025],
+  "targetYear": 2026,
   "indicators": {
-
-    "Financial assistance provided": [
+    "Increased acreage RESTORED": [
       {
-        "indicator": "Individuals who received utility assistance",
-        "definition": "Number of individuals who received utility assistance.",
-        "unit": "count", "series": { "2023": 208, "2024": 271, "2025": 33 },
-        "direction": "up", "target": null,
-        "source": "Assistance program ledger", "frequency": "Annually", "owner": "REACH Riverside",
-        "tier": "Core"
-      },
-      {
-        "indicator": "Individuals who received mortgage or rental assistance",
-        "definition": "Number of individuals who received mortgage or rental assistance.",
-        "unit": "count", "series": { "2023": 212, "2024": 278, "2025": 9 },
-        "direction": "up", "target": null,
-        "source": "Assistance program ledger", "frequency": "Annually", "owner": "REACH Riverside",
+        "indicator": "Acres 'RESTORED'",
+        "definition": "Accumulated acreage of property 'restored' or converted to communal use through the RESTORE initiative.",
+        "unit": "count", "direction": "up",
+        "baseline": 0, "series": { "2023": 3.72, "2024": 5.83, "2025": 25.19 }, "target": 33.66,
+        "source": "RESTORE Pipeline (spreadsheet)", "frequency": "On a rolling basis", "owner": "REACH (Dave Ford)",
         "tier": "Core"
       }
     ],
-    "Ongoing case management services received": [
+    "Increased access to job skills training and support": [
       {
-        "indicator": "Individuals who received ongoing case management services",
-        "definition": "Individuals who received ongoing case management services (enrolled in program).",
-        "unit": "count", "series": { "2023": 133, "2024": 220, "2025": 181 },
-        "direction": "up", "target": null,
-        "source": "Community Health case management", "frequency": "Annually", "owner": "Community Health partner",
+        "indicator": "Individuals with access to job-skill training",
+        "definition": "Individuals participating in EMPOWER (KCC) or RISE (TWH) — building technical skills necessary for employment.",
+        "unit": "count", "direction": "up",
+        "baseline": 0, "series": { "2023": 185, "2024": 185, "2025": 179 }, "target": 180,
+        "source": "Apricot (Enrollment Form)", "frequency": "Quarterly / rolling", "owner": "TWH; KCC",
         "tier": "Core"
       }
     ],
-    "Parent education/engagement events held": [
+    "Increased employment and job retention": [
       {
-        "indicator": "Parent education/engagement events held",
-        "definition": "Number of parent education/engagement events held.",
-        "unit": "count", "series": { "2023": 21, "2024": 11, "2025": 25 },
-        "direction": "up", "target": null,
-        "source": "KCC Parent/Guardian Involvement", "frequency": "Annually", "owner": "Education partner",
-        "tier": "Secondary"
-      }
-    ],
-    "Students enrolled": [
-      {
-        "indicator": "Children ages 1–5 enrolled (Early Learning Academy)",
-        "definition": "Number of children ages 1–5 enrolled in the Early Learning Academy. Volume metric — capacity-limited, no inherent good/bad direction.",
-        "unit": "count", "series": { "2023": 70, "2024": 65, "2025": 65 },
-        "direction": "neutral", "target": null,
-        "source": "KCC Early Learning Academy", "frequency": "Annually", "owner": "Education partner",
-        "tier": "Secondary"
-      }
-    ],
-    "Youth served": [
-      {
-        "indicator": "School-aged youth enrolled (ages 5–12)",
-        "definition": "Number of school-aged youth enrolled in KCC programming. Volume metric.",
-        "unit": "count", "series": { "2023": 106, "2024": 87, "2025": 64 },
-        "direction": "neutral", "target": null,
-        "source": "KCC School-Aged Youth", "frequency": "Annually", "owner": "Education partner",
-        "tier": "Secondary"
-      }
-    ],
-    "Individuals attending health workshops": [
-      {
-        "indicator": "Individuals attending health workshops",
-        "definition": "Number of individuals who attended health workshops.",
-        "unit": "count", "series": { "2023": 169, "2024": 74, "2025": 250 },
-        "direction": "up", "target": null,
-        "source": "Community Health — Health", "frequency": "Annually", "owner": "Community Health partner",
-        "tier": "Secondary"
-      }
-    ],
-    "Individuals accessing healthcare services": [
-      {
-        "indicator": "Individuals who accessed primary healthcare services",
-        "definition": "Number of individuals who accessed primary healthcare services.",
-        "unit": "count", "series": { "2023": 93, "2024": 84, "2025": "TBD" },
-        "direction": "up", "target": null,
-        "source": "Community Health — Health", "frequency": "Annually", "owner": "Community Health partner",
+        "indicator": "Individuals who obtained wealth-building employment",
+        "definition": "Workforce-program participants (EMPOWER/RISE) who secured jobs providing sufficient income for financial stability and asset accumulation.",
+        "unit": "count", "direction": "up",
+        "baseline": 0, "series": { "2023": 25, "2024": 37, "2025": 34 }, "target": 36,
+        "source": "Apricot (Work Experience / Employment Form)", "frequency": "Quarterly / rolling", "owner": "TWH; KCC",
         "tier": "Core"
       }
     ],
-    "Individuals accessing mental health services": [
+    "Parents/guardians committed to family development": [
       {
-        "indicator": "Individuals who accessed behavioral/mental health services",
-        "definition": "Number of individuals who accessed behavioral/mental health services.",
-        "unit": "count", "series": { "2023": 158, "2024": 529, "2025": "TBD" },
-        "direction": "up", "target": null,
-        "source": "Community Health — Health", "frequency": "Annually", "owner": "Community Health partner",
+        "indicator": "Parents/guardians committed to family development",
+        "definition": "Parents/caregivers actively engaging in family development — setting family goals, Family Partnership Agreements, working toward identified objectives. 10-year goal is 80%.",
+        "unit": "count", "direction": "up",
+        "baseline": "did not track", "series": { "2023": 100, "2024": 150, "2025": 80 }, "target": 130,
+        "source": "Apricot (Family Strengths & Needs Assessment)", "frequency": "Once per school year", "owner": "KCC (Char-Rae Jones)",
         "tier": "Core"
       }
     ],
-    "Enrollment in and completion of job skills training programs": [
+    "Individuals engaged in civic life and community": [
       {
-        "indicator": "Individuals enrolled in a job skills training program",
-        "definition": "Number of individuals enrolled in a job skills training program.",
-        "unit": "count", "series": { "2023": 185, "2024": 185, "2025": 179 },
-        "direction": "up", "target": null,
-        "source": "Workforce program CRM", "frequency": "Annually", "owner": "Economic Vitality partner",
-        "tier": "Core"
-      },
-      {
-        "indicator": "Individuals who completed a job skills training program",
-        "definition": "Number of individuals who completed a job skills training program.",
-        "unit": "count", "series": { "2023": 151, "2024": 163, "2025": 158 },
-        "direction": "up", "target": null,
-        "source": "Workforce program CRM", "frequency": "Annually", "owner": "Economic Vitality partner",
-        "tier": "Secondary"
-      }
-    ],
-    "Externships and job placements": [
-      {
-        "indicator": "Individuals who obtained employment",
-        "definition": "Number of individuals who obtained employment.",
-        "unit": "count", "series": { "2023": 25, "2024": 41, "2025": 34 },
-        "direction": "up", "target": null,
-        "source": "Workforce program CRM", "frequency": "Annually", "owner": "Economic Vitality partner",
+        "indicator": "Imani Village residents engaged in civic & community life",
+        "definition": "Households in Imani Village rental units participating in civic activities and community engagement (community meetings, Tenant Council, volunteer opportunities). 10-year goal is 30%.",
+        "unit": "count", "direction": "up",
+        "baseline": "did not track", "series": { "2023": 47, "2024": 60, "2025": 78 }, "target": 90,
+        "source": "Community survey; Apricot; Bloomerang", "frequency": "On a rolling basis", "owner": "REACH; KCC",
         "tier": "Core"
       }
     ],
-    "Individuals enrolled in entrepreneurial programs": [
+    "Increased financial investment in communal assets": [
       {
-        "indicator": "Individuals enrolled in entrepreneurial programs",
-        "definition": "Individuals enrolled in entrepreneurial programs (e.g. Launcher, WEALTH Garage). No WRK client participated in a Launcher cohort in 2025.",
-        "unit": "count", "series": { "2023": 53, "2024": 13, "2025": 0 },
-        "direction": "up", "target": null,
-        "source": "Entrepreneurship program", "frequency": "Annually", "owner": "REACH Riverside",
-        "tier": "Secondary"
-      }
-    ],
-    "Individuals completing entrepreneurial programs": [
-      {
-        "indicator": "Individuals who completed entrepreneurial programs",
-        "definition": "Individuals who completed entrepreneurial programs.",
-        "unit": "count", "series": { "2023": 51, "2024": 13, "2025": 0 },
-        "direction": "up", "target": null,
-        "source": "Entrepreneurship program", "frequency": "Annually", "owner": "REACH Riverside",
-        "tier": "Secondary"
-      }
-    ],
-    "Community events hosted": [
-      {
-        "indicator": "Events hosted",
-        "definition": "Number of community events hosted.",
-        "unit": "count", "series": { "2023": 169, "2024": 168, "2025": 124 },
-        "direction": "up", "target": null,
-        "source": "Community & Partner Engagement", "frequency": "Annually", "owner": "WRK Group",
-        "tier": "Secondary"
-      }
-    ],
-    "Participation in community events": [
-      {
-        "indicator": "Event attendees",
-        "definition": "Number of community-event attendees.",
-        "unit": "count", "series": { "2023": 3741, "2024": 5093, "2025": 2916 },
-        "direction": "up", "target": null,
-        "source": "Community & Partner Engagement", "frequency": "Annually", "owner": "WRK Group",
-        "tier": "Secondary"
-      }
-    ],
-    "Seniors attending the Senior Center": [
-      {
-        "indicator": "Seniors attended the Senior Center",
-        "definition": "Number of seniors who attended the Senior Center.",
-        "unit": "count", "series": { "2023": 183, "2024": 165, "2025": 102 },
-        "direction": "up", "target": null,
-        "source": "Community Health — Seniors", "frequency": "Annually", "owner": "KCC",
-        "tier": "Secondary"
-      }
-    ],
-    "Partnership agreements signed or renewed": [
-      {
-        "indicator": "Partner agreements signed/renewed",
-        "definition": "Number of partner agreements signed or renewed.",
-        "unit": "count", "series": { "2023": 18, "2024": 16, "2025": 24 },
-        "direction": "up", "target": null,
-        "source": "Community & Partner Engagement", "frequency": "Annually", "owner": "WRK Group",
-        "tier": "Secondary"
-      }
-    ],
-    "Widened network of partner organizations": [
-      {
-        "indicator": "Partner organizations",
-        "definition": "Number of partner organizations. NOTE: the 2023 figure (167) appears to use a different counting basis than 2024–2025 (27) — likely a definitional change, not a real decline. Marked neutral pending reconciliation.",
-        "unit": "count", "series": { "2023": 167, "2024": 27, "2025": 27 },
-        "direction": "neutral", "target": null,
-        "source": "Community & Partner Engagement", "frequency": "Annually", "owner": "WRK Group",
-        "tier": "Secondary"
-      }
-    ],
-    "WRK Group tour attendance": [
-      {
-        "indicator": "VIP tour attendees",
-        "definition": "Number of VIP tour attendees.",
-        "unit": "count", "series": { "2023": 245, "2024": 537, "2025": 122 },
-        "direction": "up", "target": null,
-        "source": "Finance & Development", "frequency": "Annually", "owner": "WRK Group",
-        "tier": "Secondary"
-      }
-    ],
-    "Individuals completing financial assessments": [
-      {
-        "indicator": "Individuals who completed a financial assessment",
-        "definition": "Individuals who completed a financial assessment (e.g. financial capability score, credit analysis).",
-        "unit": "count", "series": { "2023": 35, "2024": 15, "2025": "TBD" },
-        "direction": "up", "target": null,
-        "source": "Financial Health & Legal Services", "frequency": "Annually", "owner": "Economic Vitality partner",
-        "tier": "Secondary"
-      }
-    ],
-    "Individuals completing financial education classes or programs": [
-      {
-        "indicator": "Individuals who completed a financial education class",
-        "definition": "Individuals who completed a financial education class, including tax-preparation assistance.",
-        "unit": "count", "series": { "2023": 173, "2024": 159, "2025": "TBD" },
-        "direction": "up", "target": null,
-        "source": "Financial Health & Legal Services", "frequency": "Annually", "owner": "Economic Vitality partner",
-        "tier": "Secondary"
-      }
-    ],
-
-    "Foreclosures/evictions prevented": [
-      {
-        "indicator": "Foreclosures & evictions prevented for families",
-        "definition": "Number of foreclosures and evictions that were prevented for families.",
-        "unit": "count", "series": { "2023": 32, "2024": 42, "2025": 9 },
-        "direction": "up", "target": null,
-        "source": "Housing case management", "frequency": "Annually", "owner": "Housing Support Services",
+        "indicator": "Dollars invested in communal assets",
+        "definition": "Total Development Cost (hard + soft) invested in physical infrastructure and development projects through RESTORE and other REACH initiatives during the period.",
+        "unit": "$", "direction": "up",
+        "baseline": 3600000, "series": { "2023": 47925000, "2024": 47951648, "2025": 120790110 }, "target": 40176500,
+        "source": "RESTORE sheet", "frequency": "Annually", "owner": "REACH (Dave Ford)",
         "tier": "Core"
       }
     ],
-    "Up-to-date rental and utility payments": [
+    "Increased wages": [
       {
-        "indicator": "Individuals past due on rent/utilities now current",
-        "definition": "Number of individuals who were past due in rent/utilities who are now current.",
-        "unit": "count", "series": { "2023": 32, "2024": 42, "2025": 39 },
-        "direction": "up", "target": null,
-        "source": "Housing case management", "frequency": "Annually", "owner": "Housing Support Services",
+        "indicator": "Families with AMI (City of Wilmington) > 60%",
+        "definition": "Families in the target area (Census Tract 30.02) whose household income exceeds 60% of the Area Median Income for the City of Wilmington — indicating economic stability beyond deeply subsidized housing.",
+        "unit": "count", "direction": "up",
+        "baseline": 0, "series": { "2023": 40, "2024": 45, "2025": "tbd" }, "target": "tbd",
+        "source": "US Census / ACS (HUD)", "frequency": "Annually", "owner": "HUD (context indicator)",
         "tier": "Secondary"
-      }
-    ],
-    "Increased promotion of youth to the next grade": [
-      {
-        "indicator": "School-aged youth promoted to the next grade",
-        "definition": "Share of enrolled school-aged youth (ages 5–12) promoted to the next grade.",
-        "unit": "%", "series": { "2023": 100, "2024": 100, "2025": 100 },
-        "direction": "up", "target": null,
-        "source": "KCC School-Aged Youth", "frequency": "Annually", "owner": "Education partner",
-        "tier": "Core"
-      }
-    ],
-    "Increased kindergarten readiness": [
-      {
-        "indicator": "Kindergarten readiness (graduating ELA class)",
-        "definition": "Share of the graduating Early Learning Academy class assessed as kindergarten-ready (4th consecutive year at 100%).",
-        "unit": "%", "series": { "2023": 100, "2024": 100, "2025": 100 },
-        "direction": "up", "target": null,
-        "source": "KCC Early Learning Academy", "frequency": "Annually", "owner": "Education partner",
-        "tier": "Core"
       }
     ]
   }
