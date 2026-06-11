@@ -1,245 +1,263 @@
 {
-  "_README": "Prototype KPI dataset for the Reach Riverside logic model. Keyed by EXACT outcome label (must match the text rendered in the Short-term / Intermediate / Long-term Outcomes columns). Each outcome maps to an array of indicator objects. 'direction' = 'up' if higher is better, 'down' if lower is better (e.g. evictions). 'tier' = Core | Secondary (used by the priority filter). 'status' is explicit here for demo clarity; the layer will also derive a status from current vs. target if status is omitted. SAMPLE/ILLUSTRATIVE VALUES — not official Reach figures.",
+  "_README": "Prototype KPI dataset for the Reach Riverside logic model — TIME-SERIES format. Keyed by EXACT logic-model row label (Outputs column OR one of the three Outcomes columns). Each indicator carries a 'series' (year -> value) instead of baseline/current/target; values may be a number or a string like 'TBD'. 'direction' = 'up' (higher better), 'down' (lower better), or 'neutral' (volume metric, no good/bad judgment — shown grey). 'target' optional (null = none), shown as reference only. Status color is derived from the year-over-year trend. NOTE ON OUTPUTS vs OUTCOMES: the 2023–2025 WRK Group reports are overwhelmingly OUTPUT (activity) counts, so those are mapped to the Outputs column; the Outcomes columns hold only genuine outcome rates here, which is why most outcome rows are intentionally still 'No KPI yet' (a real measurement gap). VALUES ARE REAL FIGURES from the 2023–2025 reports; row mapping is illustrative for this prototype.",
+  "years": [2023, 2024, 2025],
   "indicators": {
-    "Increased access to affordable rental housing": [
+
+    "Financial assistance provided": [
       {
-        "indicator": "Affordable rental units available to neighbors",
-        "definition": "Count of income-restricted rental units available in the Riverside footprint.",
-        "unit": "count", "baseline": 180, "target": 600, "current": 412, "direction": "up",
-        "source": "Pennrose / WHA lease-up records", "frequency": "Quarterly", "owner": "REACH Riverside + Pennrose",
-        "tier": "Core", "status": "on-track"
+        "indicator": "Individuals who received utility assistance",
+        "definition": "Number of individuals who received utility assistance.",
+        "unit": "count", "series": { "2023": 208, "2024": 271, "2025": 33 },
+        "direction": "up", "target": null,
+        "source": "Assistance program ledger", "frequency": "Annually", "owner": "REACH Riverside",
+        "tier": "Core"
       },
       {
-        "indicator": "Median rent-to-income ratio for placed households",
-        "definition": "Share of household income spent on rent for newly housed neighbors.",
-        "unit": "%", "baseline": 48, "target": 30, "current": 38, "direction": "down",
-        "source": "WHA tenancy records", "frequency": "Annually", "owner": "Wilmington Housing Authority",
-        "tier": "Secondary", "status": "at-risk"
+        "indicator": "Individuals who received mortgage or rental assistance",
+        "definition": "Number of individuals who received mortgage or rental assistance.",
+        "unit": "count", "series": { "2023": 212, "2024": 278, "2025": 9 },
+        "direction": "up", "target": null,
+        "source": "Assistance program ledger", "frequency": "Annually", "owner": "REACH Riverside",
+        "tier": "Core"
       }
     ],
-    "Increased access to wealth creation opportunities": [
+    "Ongoing case management services received": [
       {
-        "indicator": "Neighbors enrolled in wealth-building programs",
-        "definition": "Unduplicated residents enrolled in homeownership, savings, or business programs.",
-        "unit": "count", "baseline": 0, "target": 250, "current": 96, "direction": "up",
-        "source": "Program intake CRM", "frequency": "Quarterly", "owner": "REACH Riverside",
-        "tier": "Core", "status": "at-risk"
+        "indicator": "Individuals who received ongoing case management services",
+        "definition": "Individuals who received ongoing case management services (enrolled in program).",
+        "unit": "count", "series": { "2023": 133, "2024": 220, "2025": 181 },
+        "direction": "up", "target": null,
+        "source": "Community Health case management", "frequency": "Annually", "owner": "Community Health partner",
+        "tier": "Core"
       }
     ],
-    "Increased acreage RESTORED": [
+    "Parent education/engagement events held": [
       {
-        "indicator": "Acres of property restored / redeveloped",
-        "definition": "Cumulative acreage brought back into productive use.",
-        "unit": "count", "baseline": 2, "target": 15, "current": 9, "direction": "up",
-        "source": "Redevelopment project tracker", "frequency": "Annually", "owner": "REACH Riverside + Pennrose",
-        "tier": "Secondary", "status": "on-track"
+        "indicator": "Parent education/engagement events held",
+        "definition": "Number of parent education/engagement events held.",
+        "unit": "count", "series": { "2023": 21, "2024": 11, "2025": 25 },
+        "direction": "up", "target": null,
+        "source": "KCC Parent/Guardian Involvement", "frequency": "Annually", "owner": "Education partner",
+        "tier": "Secondary"
       }
     ],
-    "Increased access to purchasing permanently affordable housing": [
+    "Students enrolled": [
       {
-        "indicator": "Community Land Trust homes available for purchase",
-        "definition": "Permanently-affordable for-sale homes in the CLT inventory.",
-        "unit": "count", "baseline": 0, "target": 40, "current": 6, "direction": "up",
-        "source": "Community Land Trust records", "frequency": "Quarterly", "owner": "REACH Riverside",
-        "tier": "Core", "status": "off-track"
+        "indicator": "Children ages 1–5 enrolled (Early Learning Academy)",
+        "definition": "Number of children ages 1–5 enrolled in the Early Learning Academy. Volume metric — capacity-limited, no inherent good/bad direction.",
+        "unit": "count", "series": { "2023": 70, "2024": 65, "2025": 65 },
+        "direction": "neutral", "target": null,
+        "source": "KCC Early Learning Academy", "frequency": "Annually", "owner": "Education partner",
+        "tier": "Secondary"
       }
     ],
-    "Increased home ownership skills": [
+    "Youth served": [
       {
-        "indicator": "Households completing homebuyer education",
-        "definition": "Households finishing HUD-approved homebuyer counseling.",
-        "unit": "count", "baseline": 30, "target": 150, "current": 88, "direction": "up",
-        "source": "Housing counseling logs", "frequency": "Quarterly", "owner": "DSHA partner",
-        "tier": "Core", "status": "on-track"
+        "indicator": "School-aged youth enrolled (ages 5–12)",
+        "definition": "Number of school-aged youth enrolled in KCC programming. Volume metric.",
+        "unit": "count", "series": { "2023": 106, "2024": 87, "2025": 64 },
+        "direction": "neutral", "target": null,
+        "source": "KCC School-Aged Youth", "frequency": "Annually", "owner": "Education partner",
+        "tier": "Secondary"
       }
     ],
-    "Increased access to rental, utility, and mortgage assistance": [
+    "Individuals attending health workshops": [
       {
-        "indicator": "Households receiving rental/utility assistance",
-        "definition": "Households that received at least one assistance disbursement.",
-        "unit": "count", "baseline": 120, "target": 400, "current": 305, "direction": "up",
-        "source": "Assistance program ledger", "frequency": "Quarterly", "owner": "REACH Riverside",
-        "tier": "Secondary", "status": "on-track"
+        "indicator": "Individuals attending health workshops",
+        "definition": "Number of individuals who attended health workshops.",
+        "unit": "count", "series": { "2023": 169, "2024": 74, "2025": 250 },
+        "direction": "up", "target": null,
+        "source": "Community Health — Health", "frequency": "Annually", "owner": "Community Health partner",
+        "tier": "Secondary"
       }
     ],
-    "Increased student attendance": [
+    "Individuals accessing healthcare services": [
       {
-        "indicator": "Chronic absenteeism rate (Riverside schools)",
-        "definition": "Share of students missing 10%+ of school days.",
-        "unit": "%", "baseline": 34, "target": 15, "current": 27, "direction": "down",
-        "source": "Kingswood Academy / district SIS", "frequency": "Quarterly", "owner": "Education partner",
-        "tier": "Core", "status": "at-risk"
+        "indicator": "Individuals who accessed primary healthcare services",
+        "definition": "Number of individuals who accessed primary healthcare services.",
+        "unit": "count", "series": { "2023": 93, "2024": 84, "2025": "TBD" },
+        "direction": "up", "target": null,
+        "source": "Community Health — Health", "frequency": "Annually", "owner": "Community Health partner",
+        "tier": "Core"
       }
     ],
-    "Increased math and literacy levels": [
+    "Individuals accessing mental health services": [
       {
-        "indicator": "Students at/above grade level in literacy",
-        "definition": "Share of students meeting grade-level literacy benchmark.",
-        "unit": "%", "baseline": 41, "target": 70, "current": 52, "direction": "up",
-        "source": "i-Ready / district assessments", "frequency": "Semi-annually", "owner": "Education partner",
-        "tier": "Core", "status": "on-track"
+        "indicator": "Individuals who accessed behavioral/mental health services",
+        "definition": "Number of individuals who accessed behavioral/mental health services.",
+        "unit": "count", "series": { "2023": 158, "2024": 529, "2025": "TBD" },
+        "direction": "up", "target": null,
+        "source": "Community Health — Health", "frequency": "Annually", "owner": "Community Health partner",
+        "tier": "Core"
       }
     ],
-    "Increased access to affordable, high quality healthcare": [
+    "Enrollment in and completion of job skills training programs": [
       {
-        "indicator": "Neighbors with a usual source of care",
-        "definition": "Share of surveyed residents reporting a regular healthcare provider.",
-        "unit": "%", "baseline": 58, "target": 85, "current": 64, "direction": "up",
-        "source": "Annual resident survey", "frequency": "Annually", "owner": "Community Health partner",
-        "tier": "Secondary", "status": "at-risk"
+        "indicator": "Individuals enrolled in a job skills training program",
+        "definition": "Number of individuals enrolled in a job skills training program.",
+        "unit": "count", "series": { "2023": 185, "2024": 185, "2025": 179 },
+        "direction": "up", "target": null,
+        "source": "Workforce program CRM", "frequency": "Annually", "owner": "Economic Vitality partner",
+        "tier": "Core"
+      },
+      {
+        "indicator": "Individuals who completed a job skills training program",
+        "definition": "Number of individuals who completed a job skills training program.",
+        "unit": "count", "series": { "2023": 151, "2024": 163, "2025": 158 },
+        "direction": "up", "target": null,
+        "source": "Workforce program CRM", "frequency": "Annually", "owner": "Economic Vitality partner",
+        "tier": "Secondary"
       }
     ],
-    "Increased access to job skills training and support": [
+    "Externships and job placements": [
       {
-        "indicator": "Residents enrolled in workforce training",
-        "definition": "Unduplicated residents enrolled in a credentialed training program.",
-        "unit": "count", "baseline": 0, "target": 200, "current": 142, "direction": "up",
-        "source": "Workforce program CRM", "frequency": "Quarterly", "owner": "Economic Vitality partner",
-        "tier": "Core", "status": "on-track"
+        "indicator": "Individuals who obtained employment",
+        "definition": "Number of individuals who obtained employment.",
+        "unit": "count", "series": { "2023": 25, "2024": 41, "2025": 34 },
+        "direction": "up", "target": null,
+        "source": "Workforce program CRM", "frequency": "Annually", "owner": "Economic Vitality partner",
+        "tier": "Core"
+      }
+    ],
+    "Individuals enrolled in entrepreneurial programs": [
+      {
+        "indicator": "Individuals enrolled in entrepreneurial programs",
+        "definition": "Individuals enrolled in entrepreneurial programs (e.g. Launcher, WEALTH Garage). No WRK client participated in a Launcher cohort in 2025.",
+        "unit": "count", "series": { "2023": 53, "2024": 13, "2025": 0 },
+        "direction": "up", "target": null,
+        "source": "Entrepreneurship program", "frequency": "Annually", "owner": "REACH Riverside",
+        "tier": "Secondary"
+      }
+    ],
+    "Individuals completing entrepreneurial programs": [
+      {
+        "indicator": "Individuals who completed entrepreneurial programs",
+        "definition": "Individuals who completed entrepreneurial programs.",
+        "unit": "count", "series": { "2023": 51, "2024": 13, "2025": 0 },
+        "direction": "up", "target": null,
+        "source": "Entrepreneurship program", "frequency": "Annually", "owner": "REACH Riverside",
+        "tier": "Secondary"
+      }
+    ],
+    "Community events hosted": [
+      {
+        "indicator": "Events hosted",
+        "definition": "Number of community events hosted.",
+        "unit": "count", "series": { "2023": 169, "2024": 168, "2025": 124 },
+        "direction": "up", "target": null,
+        "source": "Community & Partner Engagement", "frequency": "Annually", "owner": "WRK Group",
+        "tier": "Secondary"
+      }
+    ],
+    "Participation in community events": [
+      {
+        "indicator": "Event attendees",
+        "definition": "Number of community-event attendees.",
+        "unit": "count", "series": { "2023": 3741, "2024": 5093, "2025": 2916 },
+        "direction": "up", "target": null,
+        "source": "Community & Partner Engagement", "frequency": "Annually", "owner": "WRK Group",
+        "tier": "Secondary"
+      }
+    ],
+    "Seniors attending the Senior Center": [
+      {
+        "indicator": "Seniors attended the Senior Center",
+        "definition": "Number of seniors who attended the Senior Center.",
+        "unit": "count", "series": { "2023": 183, "2024": 165, "2025": 102 },
+        "direction": "up", "target": null,
+        "source": "Community Health — Seniors", "frequency": "Annually", "owner": "KCC",
+        "tier": "Secondary"
+      }
+    ],
+    "Partnership agreements signed or renewed": [
+      {
+        "indicator": "Partner agreements signed/renewed",
+        "definition": "Number of partner agreements signed or renewed.",
+        "unit": "count", "series": { "2023": 18, "2024": 16, "2025": 24 },
+        "direction": "up", "target": null,
+        "source": "Community & Partner Engagement", "frequency": "Annually", "owner": "WRK Group",
+        "tier": "Secondary"
+      }
+    ],
+    "Widened network of partner organizations": [
+      {
+        "indicator": "Partner organizations",
+        "definition": "Number of partner organizations. NOTE: the 2023 figure (167) appears to use a different counting basis than 2024–2025 (27) — likely a definitional change, not a real decline. Marked neutral pending reconciliation.",
+        "unit": "count", "series": { "2023": 167, "2024": 27, "2025": 27 },
+        "direction": "neutral", "target": null,
+        "source": "Community & Partner Engagement", "frequency": "Annually", "owner": "WRK Group",
+        "tier": "Secondary"
+      }
+    ],
+    "WRK Group tour attendance": [
+      {
+        "indicator": "VIP tour attendees",
+        "definition": "Number of VIP tour attendees.",
+        "unit": "count", "series": { "2023": 245, "2024": 537, "2025": 122 },
+        "direction": "up", "target": null,
+        "source": "Finance & Development", "frequency": "Annually", "owner": "WRK Group",
+        "tier": "Secondary"
+      }
+    ],
+    "Individuals completing financial assessments": [
+      {
+        "indicator": "Individuals who completed a financial assessment",
+        "definition": "Individuals who completed a financial assessment (e.g. financial capability score, credit analysis).",
+        "unit": "count", "series": { "2023": 35, "2024": 15, "2025": "TBD" },
+        "direction": "up", "target": null,
+        "source": "Financial Health & Legal Services", "frequency": "Annually", "owner": "Economic Vitality partner",
+        "tier": "Secondary"
+      }
+    ],
+    "Individuals completing financial education classes or programs": [
+      {
+        "indicator": "Individuals who completed a financial education class",
+        "definition": "Individuals who completed a financial education class, including tax-preparation assistance.",
+        "unit": "count", "series": { "2023": 173, "2024": 159, "2025": "TBD" },
+        "direction": "up", "target": null,
+        "source": "Financial Health & Legal Services", "frequency": "Annually", "owner": "Economic Vitality partner",
+        "tier": "Secondary"
       }
     ],
 
-    "Increase in families moving into affordable rental housing": [
-      {
-        "indicator": "Families newly housed in affordable units",
-        "definition": "Net new families moving into income-restricted units year over year.",
-        "unit": "count", "baseline": 0, "target": 300, "current": 158, "direction": "up",
-        "source": "Pennrose lease-up + WHA", "frequency": "Quarterly", "owner": "REACH Riverside + Pennrose",
-        "tier": "Core", "status": "on-track"
-      }
-    ],
-    "Increase in families purchasing homes": [
-      {
-        "indicator": "First-time homebuyers (Riverside neighbors)",
-        "definition": "Neighbors closing on a first home purchase.",
-        "unit": "count", "baseline": 4, "target": 60, "current": 19, "direction": "up",
-        "source": "Closing records / counseling partner", "frequency": "Quarterly", "owner": "DSHA partner",
-        "tier": "Core", "status": "at-risk"
-      }
-    ],
     "Foreclosures/evictions prevented": [
       {
-        "indicator": "Eviction filings among assisted households",
-        "definition": "Eviction filings against households in the assistance program.",
-        "unit": "count", "baseline": 45, "target": 10, "current": 22, "direction": "down",
-        "source": "Court records / case management", "frequency": "Quarterly", "owner": "Housing Support Services",
-        "tier": "Core", "status": "on-track"
+        "indicator": "Foreclosures & evictions prevented for families",
+        "definition": "Number of foreclosures and evictions that were prevented for families.",
+        "unit": "count", "series": { "2023": 32, "2024": 42, "2025": 9 },
+        "direction": "up", "target": null,
+        "source": "Housing case management", "frequency": "Annually", "owner": "Housing Support Services",
+        "tier": "Core"
       }
     ],
     "Up-to-date rental and utility payments": [
       {
-        "indicator": "Households current on rent and utilities",
-        "definition": "Share of supported households with no past-due balance.",
-        "unit": "%", "baseline": 61, "target": 90, "current": 74, "direction": "up",
-        "source": "Property management ledger", "frequency": "Quarterly", "owner": "Wilmington Housing Authority",
-        "tier": "Secondary", "status": "at-risk"
+        "indicator": "Individuals past due on rent/utilities now current",
+        "definition": "Number of individuals who were past due in rent/utilities who are now current.",
+        "unit": "count", "series": { "2023": 32, "2024": 42, "2025": 39 },
+        "direction": "up", "target": null,
+        "source": "Housing case management", "frequency": "Annually", "owner": "Housing Support Services",
+        "tier": "Secondary"
       }
     ],
-    "Increased income, savings, assets, and/or decreased debt": [
+    "Increased promotion of youth to the next grade": [
       {
-        "indicator": "Participants increasing net worth (12 mo.)",
-        "definition": "Share of financial-coaching participants with higher net worth after a year.",
-        "unit": "%", "baseline": 0, "target": 60, "current": 31, "direction": "up",
-        "source": "Financial coaching outcomes", "frequency": "Annually", "owner": "Economic Vitality partner",
-        "tier": "Core", "status": "at-risk"
+        "indicator": "School-aged youth promoted to the next grade",
+        "definition": "Share of enrolled school-aged youth (ages 5–12) promoted to the next grade.",
+        "unit": "%", "series": { "2023": 100, "2024": 100, "2025": 100 },
+        "direction": "up", "target": null,
+        "source": "KCC School-Aged Youth", "frequency": "Annually", "owner": "Education partner",
+        "tier": "Core"
       }
     ],
-    "Increased credit scores among residents": [
+    "Increased kindergarten readiness": [
       {
-        "indicator": "Participants raising credit score 30+ points",
-        "definition": "Share of coaching participants improving score by 30+ points.",
-        "unit": "%", "baseline": 0, "target": 50, "current": 24, "direction": "up",
-        "source": "Credit-builder program", "frequency": "Annually", "owner": "Economic Vitality partner",
-        "tier": "Secondary", "status": "off-track"
-      }
-    ],
-    "New small businesses created": [
-      {
-        "indicator": "New businesses launched on the corridor",
-        "definition": "New businesses opened in the commercial corridor.",
-        "unit": "count", "baseline": 1, "target": 25, "current": 7, "direction": "up",
-        "source": "Corridor revitalization tracker", "frequency": "Annually", "owner": "REACH Riverside",
-        "tier": "Core", "status": "at-risk"
-      }
-    ],
-    "Students achieving academic benchmarks": [
-      {
-        "indicator": "Students meeting annual growth target",
-        "definition": "Share of students meeting expected annual academic growth.",
-        "unit": "%", "baseline": 39, "target": 65, "current": 47, "direction": "up",
-        "source": "District assessments", "frequency": "Annually", "owner": "Education partner",
-        "tier": "Secondary", "status": "on-track"
-      }
-    ],
-
-    "Increased housing stability": [
-      {
-        "indicator": "Residents housed 12+ consecutive months",
-        "definition": "Share of placed households retaining stable housing for a year or more.",
-        "unit": "%", "baseline": 62, "target": 88, "current": 73, "direction": "up",
-        "source": "WHA tenancy records", "frequency": "Quarterly", "owner": "Wilmington Housing Authority",
-        "tier": "Core", "status": "on-track"
-      },
-      {
-        "indicator": "Legacy residents remaining in neighborhood",
-        "definition": "Share of pre-redevelopment residents still living in Riverside.",
-        "unit": "%", "baseline": 100, "target": 85, "current": 91, "direction": "up",
-        "source": "Resident registry", "frequency": "Annually", "owner": "REACH Riverside",
-        "tier": "Core", "status": "on-track"
-      }
-    ],
-    "Increased legacy resident retention": [
-      {
-        "indicator": "Legacy households returning post-redevelopment",
-        "definition": "Share of relocated legacy households who return to new units.",
-        "unit": "%", "baseline": 0, "target": 75, "current": 58, "direction": "up",
-        "source": "Relocation tracking", "frequency": "Annually", "owner": "REACH Riverside",
-        "tier": "Core", "status": "at-risk"
-      }
-    ],
-    "Generational wealth creation through home ownership": [
-      {
-        "indicator": "Median home equity built by neighbor owners",
-        "definition": "Median equity accrued by Riverside homeowners assisted by the program.",
-        "unit": "$", "baseline": 0, "target": 60000, "current": 18000, "direction": "up",
-        "source": "Property records / CLT", "frequency": "Annually", "owner": "REACH Riverside",
-        "tier": "Secondary", "status": "off-track"
-      }
-    ],
-    "Revitalized commericial corridor": [
-      {
-        "indicator": "Ground-floor commercial occupancy rate",
-        "definition": "Share of corridor commercial space that is leased and occupied.",
-        "unit": "%", "baseline": 35, "target": 85, "current": 54, "direction": "up",
-        "source": "Corridor leasing report", "frequency": "Quarterly", "owner": "REACH Riverside + Pennrose",
-        "tier": "Core", "status": "at-risk"
-      }
-    ],
-    "Increased high school graduation": [
-      {
-        "indicator": "On-time high school graduation rate",
-        "definition": "Share of Riverside students graduating within four years.",
-        "unit": "%", "baseline": 71, "target": 90, "current": 79, "direction": "up",
-        "source": "District / state report card", "frequency": "Annually", "owner": "Education partner",
-        "tier": "Core", "status": "on-track"
-      }
-    ],
-    "Increased financial health and economic independence": [
-      {
-        "indicator": "Households above ALICE survival threshold",
-        "definition": "Share of households earning above the basic cost-of-living threshold.",
-        "unit": "%", "baseline": 44, "target": 70, "current": 51, "direction": "up",
-        "source": "Resident survey / United Way ALICE", "frequency": "Annually", "owner": "Economic Vitality partner",
-        "tier": "Core", "status": "at-risk"
-      }
-    ],
-    "A vibrant, socially cohesive community": [
-      {
-        "indicator": "Residents reporting strong sense of community",
-        "definition": "Share of residents agreeing they feel connected to neighbors.",
-        "unit": "%", "baseline": 49, "target": 75, "current": 56, "direction": "up",
-        "source": "Annual resident survey", "frequency": "Annually", "owner": "REACH Riverside",
-        "tier": "Secondary", "status": "on-track"
+        "indicator": "Kindergarten readiness (graduating ELA class)",
+        "definition": "Share of the graduating Early Learning Academy class assessed as kindergarten-ready (4th consecutive year at 100%).",
+        "unit": "%", "series": { "2023": 100, "2024": 100, "2025": 100 },
+        "direction": "up", "target": null,
+        "source": "KCC Early Learning Academy", "frequency": "Annually", "owner": "Education partner",
+        "tier": "Core"
       }
     ]
   }

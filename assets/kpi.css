@@ -77,17 +77,21 @@
 .kpi-badge-count { font-size: 11px; font-weight: 700; color: var(--kpi-ink); }
 .kpi-badge .kpi-bar-track { flex: 1 1 60px; min-width: 60px; }
 
+/* per-year bar chart (neutral, single color — no good/bad signal) */
+.kpi-chart { display: inline-block; vertical-align: middle; flex: 0 0 auto; }
+.kpi-badge-val { font-size: 13px; font-weight: 800; color: var(--kpi-ink); }
+.kpi-chart-lg { width: 100%; height: 64px; margin: 12px 0 6px; }
+.kpi-swatch { display: inline-block; width: 9px; height: 9px; border-radius: 2px; }
+.kpi-legend-item { gap: 6px; }
+.kpi-num-target { background: #f1f3f7; box-shadow: inset 0 0 0 1px var(--kpi-border); }
+.kpi-sc-yr { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
 .kpi-metrics-on .kpi-gap {
   display: block; margin-top: 8px; font-size: 11px; font-style: italic; color: #b08400;
 }
 
 .kpi-metrics-on .kpi-card:hover { background: #fafbfe; }
 
-/* color-by-status: left accent border on cards */
-.kpi-color-by-status .kpi-card[data-kpi-status="on-track"] { box-shadow: inset 4px 0 0 #2e8b57; }
-.kpi-color-by-status .kpi-card[data-kpi-status="at-risk"]  { box-shadow: inset 4px 0 0 #e0a200; }
-.kpi-color-by-status .kpi-card[data-kpi-status="off-track"]{ box-shadow: inset 4px 0 0 #d9534f; }
-.kpi-color-by-status .kpi-card[data-kpi-status="gap"]      { box-shadow: inset 4px 0 0 #c7ccd6; }
 
 /* view filter hide */
 .kpi-hidden { display: none !important; }
