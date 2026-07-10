@@ -4,6 +4,8 @@ A local, self-contained prototype that adds a **KPI / measurement layer** on top
 the existing Reach Riverside digital logic model. Everything runs from frozen local
 data — no live Google Sheets calls, nothing deployed.
 
+Deployed here: https://januaryadvisors.github.io/reach-riverside-logic-model/
+
 ## Run it
 
 ```bash
